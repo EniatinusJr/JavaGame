@@ -4,11 +4,13 @@ public class Item {
 
     private String name;
     private String itemDescription;
+    private int weight;
     private Tag tag;
 
-    public Item(String name, String itemDescription, Tag tag) {
+    public Item(String name, String itemDescription, int weight, Tag tag) {
         this.name = name;
         this.itemDescription = itemDescription;
+        this.weight = weight;
         this.tag = tag;
     }
 
@@ -23,6 +25,12 @@ public class Item {
     }
     public void setItemDescription(String itemDescription) {
         this.itemDescription = itemDescription;
+    }
+    public int getWeight() {
+        return weight;
+    }
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
     public Tag getTag() {
         return tag;
