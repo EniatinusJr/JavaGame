@@ -73,7 +73,7 @@ public class test {
         assert (new ByteArrayInputStream("go north".getBytes()).equals(parser.getInputStream()));
     }
 
-    @Test // Testet die GetCommand Methode, welche d
+    @Test // Testet die GetCommand Methode
     public void testGetCommand() {
         ByteArrayInputStream in = new ByteArrayInputStream("go north".getBytes());
         Parser parser = new Parser(in);
@@ -89,17 +89,17 @@ public class test {
     //Room
     @Test
     public void testKonstruktorRoom() {
-        Room room = new Room("name", "this is a description");
+        Room room = new Room("name","this is a description");
         assert ("this is a description".equals(room.shortDescription()));
     }
 
     @Test
     public void testExitString() {
-        Room room = new Room("name", "desc.");
-        Room room1 = new Room("name", "desc.");
+        Room room = new Room("name","desc.");
+        Room room1 = new Room("name","desc.");
         Room room2 = new Room("name","desc.");
         Room room3 = new Room("name", "desc.");
-        Room room4 = new Room("name", "desc.");
+        Room room4 = new Room("name","desc.");
         room.setExits(room1, room2, room3, room4);
 
         assertEquals("Exits:east south north west", room.exitString());
@@ -113,12 +113,15 @@ public class test {
 
     @Test
     public void testNextRoom() {
-        Room room = new Room("name", "desc.");
-        Room room1 = new Room("name", "desc");
+        Room room = new Room("name","desc.");
+        Room room1 = new Room("name","desc");
         assertNull(room.nextRoom("north"));
 
         room.setExits(room1, null, null, null);
         assertSame(room1, room.nextRoom("north"));
+    }
+    @Test
+    public void testWin(){
     }
 
 }
